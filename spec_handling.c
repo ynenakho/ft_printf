@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 20:50:24 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/02 15:38:14 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/02 22:56:46 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int ft_algo(t_arg *arg, va_list *ap)
 		res = ft_handle_uint(arg, ap);
 	else if (arg->sp == 'p')
 		res = ft_handle_addr(arg, ap);
-	if (arg->sp == 'c' || arg->sp == 'C')
+	if (arg->sp == 'c' || arg->sp == 'C' || arg->sp == 'S')
 	{
 		write(1, res, arg->l);
 		ret += arg->l;

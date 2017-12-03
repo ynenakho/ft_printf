@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 00:02:37 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/02 16:28:47 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:08:59 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*get_precision_str(t_arg *arg)
 
 	if (arg->precision != -1 && arg->precision < arg->l)
 		str = ft_strsub(arg->val.str, 0, arg->precision);
-	else if (arg->precision == -1)
+	else if (arg->precision == 0)
 		str = ft_strdup("");
 	else
 		str = ft_strsub(arg->val.str, 0, arg->l);
