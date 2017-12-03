@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 16:04:59 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/02 21:50:43 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/02 21:55:48 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ char		*ft_handle_char(t_arg *arg, va_list *ap)
 	char *width;
 
 	if (arg->sp == '%')
-		arg->val.chr = '%';
+		return (ft_strdup("%");
+//		arg->val.chr = '%';
 	else
 		arg->val.chr = (unsigned char)va_arg(*ap, int);
 	width = ft_get_width(arg);
