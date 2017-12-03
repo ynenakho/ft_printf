@@ -6,7 +6,7 @@
 #    By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 19:51:51 by ynenakho          #+#    #+#              #
-#    Updated: 2017/12/02 21:13:31 by ynenakho         ###   ########.fr        #
+#    Updated: 2017/12/02 21:15:58 by ynenakho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,6 @@ $(NAME):
 	@gcc -Wall -Wextra -Werror -c $(SRCS)
 	@ar rc $(NAME) *.o
 	@ranlib $(NAME)
-//	@gcc $(CFLAGS) -o $(EXE) main.c libftprintf.a -g
 	@echo "\033[33;32mLibft: Ready >:D"
 
 clean:
