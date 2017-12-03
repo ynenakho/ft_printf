@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 16:00:06 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/01 22:09:29 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/02 23:43:15 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ t_arg	*create_struct(char **fmt, va_list *ap)
 	arg->width = 0;
 	arg->precision = -1;
 	arg->length = ft_strnew(0);
+	arg->l = 0;
 	ft_parse_flag(fmt, arg);
 	ft_parse_width(fmt, arg, ap);
 	ft_parse_precision(fmt, arg, ap);
