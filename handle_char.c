@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 16:04:59 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/27 17:24:15 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/02 21:50:43 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ char		*ft_handle_char(t_arg *arg, va_list *ap)
 		result = ft_strmjoin(2, &arg->val.chr, width);
 	else
 		result = ft_strmjoin(2, width, &arg->val.chr);
-	ft_strdel(&width);
 	if (arg->val.chr == '\0')
 		arg->l = ft_strlen(result) + 1;
 	else
