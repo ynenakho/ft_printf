@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 20:19:48 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 20:44:50 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 20:59:04 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,15 @@ void ft_parse_sp(char **fmt, t_arg *arg)
 		arg->sp = **fmt;
 		(*fmt)++;
 //	}
-//	if (arg->sp == 'c' && !ft_strcmp(arg->length, "l"))
-//		arg->length = ft_strnew(0);
+	if (arg->sp == 's' && !ft_strcmp(arg->length, "l"))
+	{
+		arg->sp = 'S';
+	}
+
+	if (arg->sp == 'c' && !ft_strcmp(arg->length, "l"))
+	{
+		arg->sp = 'C';
+	}
 	if ((arg->sp == 'U' || arg->sp == 'O' || arg->sp == 'D') && ft_strcmp(arg->length, "l"))
 	{	
 		tmp = arg->length;
