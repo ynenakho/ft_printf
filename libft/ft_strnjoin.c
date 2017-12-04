@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/01 15:50:10 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/01 17:19:38 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 02:17:31 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strnjoin(char const *s1, char const *s2, int size)
 	int		s1_length;
 	int		s2_length;
 	int		min;
-	
 	char	*new;
 
 	if (!s1 || !s2)

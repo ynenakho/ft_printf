@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 18:42:32 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 19:11:34 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 00:11:58 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_arg
 
 typedef char*	(*t_func)(t_arg*, va_list*);
 
+char			*ft_handle_binary(t_arg *arg, va_list *ap);
 t_func			get_func(char c);
 void			del_structs(t_arg *arg);
 char			*get_width_str(t_arg *args);

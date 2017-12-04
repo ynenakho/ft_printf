@@ -6,7 +6,7 @@
 #    By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 19:51:51 by ynenakho          #+#    #+#              #
-#    Updated: 2017/12/02 23:01:25 by ynenakho         ###   ########.fr        #
+#    Updated: 2017/12/04 00:09:37 by ynenakho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ LIBFT = libft/ft_isascii.c libft/ft_memcmp.c libft/ft_strchr.c libft/ft_strlen.c
 		libft/ft_lstpush.c libft/ft_strnjoin.c libft/ft_strmjoin.c
 PRINTF = conversions.c ft_printf.c functions.c handle_char.c handle_int.c handle_str.c ft_itoaf.c \
 		 handle_addr.c handle_hex.c handle_octal.c handle_uint.c parse_funcs.c spec_handling.c \
-		 ft_wcharlen.c handle_wchar.c handle_wstr.c ft_wstr_helper.c
+		 ft_wcharlen.c handle_wchar.c handle_wstr.c ft_wstr_helper.c handle_binnary.c
 
 SRCS = $(LIBFT)  $(PRINTF)
 

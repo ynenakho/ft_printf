@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 20:50:24 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 23:49:48 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 23:58:26 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ static void	init_funcs(t_func *funcs)
 	funcs['O'] = &ft_handle_octal;
 	funcs['%'] = &ft_handle_char;
 	funcs['c'] = &ft_handle_char;
-	funcs['C'] = &ft_handle_wchar;
+	funcs['C'] = &ft_handle_char;
 	funcs['p'] = &ft_handle_addr;
-	//	funcs['b'] = &ft_handle_mybinary;
+	funcs['b'] = &ft_handle_binary;
 	funcs['U'] = &ft_handle_uint;
 	funcs['u'] = &ft_handle_uint;
 }
