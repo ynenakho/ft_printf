@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 15:10:34 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/27 17:51:09 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 17:40:47 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ char	*ft_handle_hex(t_arg *arg, va_list *ap)
 		result = ft_strmjoin(2, width, arg->str);
 	else
 		result = arg->str;
+	arg->l = ft_strlen(result);
 	ft_strdel(&width);
 	ft_strdel(&hash);
 	ft_strdel(&precision);

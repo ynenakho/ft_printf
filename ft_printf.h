@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/23 18:42:32 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/01 19:57:08 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 17:38:59 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 # include <wchar.h>
+
 
 typedef			union
 {
@@ -49,6 +50,9 @@ typedef struct	s_arg
 	t_val		val;
 }				t_arg;
 
+typedef char*	(*t_func)(t_arg*, va_list*);
+
+t_func			get_func(char c);
 void			del_structs(t_arg *arg);
 char			*get_width_str(t_arg *args);
 char			*get_precision_str(t_arg *args);
@@ -78,4 +82,3 @@ int				ft_algo(t_arg *arg, va_list *ap);
 int				ft_wcharlen(wchar_t wc);
 
 #endif
-

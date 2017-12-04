@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 15:03:16 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/01 22:11:53 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 17:45:09 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ char		*ft_handle_int(t_arg *arg, va_list *ap)
 		result = ft_strmjoin(4, width, arg->sign, precision, val);
 	else
 		result = ft_strmjoin(4, arg->sign, width, precision, val);
+	arg->l = ft_strlen(result);
 	ft_strdel(&arg->sign);
 	ft_strdel(&val);
 	ft_strdel(&width);

@@ -6,7 +6,7 @@
 #    By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/26 19:51:51 by ynenakho          #+#    #+#              #
-#    Updated: 2017/12/02 21:15:58 by ynenakho         ###   ########.fr        #
+#    Updated: 2017/12/02 23:01:25 by ynenakho         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ EXE = test
 all: $(NAME)
 
 $(NAME):
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
+	@gcc -Wall -Wextra -Werror -c -g $(SRCS)
 	@ar rc $(NAME) *.o
 	@ranlib $(NAME)
 	@echo "\033[33;32mLibft: Ready >:D"
