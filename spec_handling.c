@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 20:50:24 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 17:32:48 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 19:16:58 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,16 @@ int ft_algo(t_arg *arg, va_list *ap)
 		arg->l = arg->width;
 		value = ft_strnew(arg->width);
 		ft_memset(value, ' ', arg->width);
-		ft_memset(value + arg->width - 1, arg->sp, 1);
+		if (arg->flag.left_j)
+			ft_memset(value, arg->sp, 1);
+		else
+			ft_memset(value + arg->width - 1, arg->sp, 1);
 	}
+	/* else if (arg->sp == '\0') */
+	/* { */
+	/* 	arg->l = 0; */
+	/* 	value = ft_strnew(0); */
+	/* } */
 	else
 	{
 		arg->l = 1;

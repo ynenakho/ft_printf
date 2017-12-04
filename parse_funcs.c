@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 20:19:48 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 18:01:02 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 20:44:50 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,19 @@ void ft_parse_precision(char **fmt, t_arg *arg, va_list *ap)
 
 void ft_parse_length(char **fmt, t_arg *arg)
 {
+	char *tmp;
+	char *tmpp;
+
+	tmpp = arg->length;
 	if (**fmt == 'h')
 	{
 		arg->length = ft_strnjoin(arg->length, *fmt, 1);
 		if (*(++(*fmt)) == 'h')
+		{
+			tmp = arg->length;
 			arg->length = ft_strnjoin(arg->length, *fmt, 1);
+			ft_strdel(&tmp);
+		}
 		else
 			(*fmt)--;
 	}
@@ -102,7 +110,11 @@ void ft_parse_length(char **fmt, t_arg *arg)
 	{
 		arg->length = ft_strnjoin(arg->length, *fmt, 1);
 		if (*(++(*fmt)) == 'l')
+		{
+			tmp = arg->length;
 			arg->length = ft_strnjoin(arg->length, *fmt, 1);
+			ft_strdel(&tmp);
+		}
 		else
 			(*fmt)--;
 	}
@@ -112,17 +124,25 @@ void ft_parse_length(char **fmt, t_arg *arg)
 		arg->length = ft_strnjoin(arg->length, *fmt, 1);
 	else
 		return ;
+	ft_strdel(&tmpp);
 	(*fmt)++;
 }
 
 void ft_parse_sp(char **fmt, t_arg *arg)
 {
+	char *tmp;
 //	if (**fmt == 's' || **fmt == 'S' || **fmt == 'p' || **fmt == 'd' || **fmt == 'D' || **fmt == 'i' || **fmt == 'o' || **fmt == 'O' || **fmt == 'u' || **fmt == 'U' || **fmt == 'x' || **fmt == 'X' || **fmt == 'c' || **fmt == 'C' || **fmt == '%')
 //	{
 		arg->sp = **fmt;
 		(*fmt)++;
 //	}
+//	if (arg->sp == 'c' && !ft_strcmp(arg->length, "l"))
+//		arg->length = ft_strnew(0);
 	if ((arg->sp == 'U' || arg->sp == 'O' || arg->sp == 'D') && ft_strcmp(arg->length, "l"))
+	{	
+		tmp = arg->length;
 		arg->length = ft_strdup("l");
+		ft_strdel(&tmp);
+	}
 //	(*fmt)++;
 }

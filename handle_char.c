@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 16:04:59 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 18:12:58 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 18:32:12 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static char *get_width(t_arg *arg)
 	int num;
 	char *width;
 
-	num = arg->width - arg->l;
+	num = arg->width - 1;
 	num = (num < 0) ? 0 : num;
 	width = ft_strnew(num);
 	ft_memset(width, ' ', num);
@@ -78,7 +78,7 @@ char	*ft_handle_char(t_arg *arg, va_list *ap)
 		arg->val.chr = '%';
 	else
 		arg->val.chr = (unsigned char)va_arg(*ap, int);
-	arg->l = 1;
+//	arg->l = 1;
 	width = get_width(arg);
 	if (arg->flag.left_j)
 		res = ft_strmjoin(2, &arg->val.chr, width);

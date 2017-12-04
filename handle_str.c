@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 00:02:37 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 17:42:38 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 20:43:04 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*get_precision_str(t_arg *arg)
 		str = ft_strdup("");
 	else
 		str = ft_strsub(arg->val.str, 0, arg->l);
+//	ft_strdel(&arg->val.str);
 	return (str);
 }
 
@@ -46,18 +47,19 @@ char	*ft_handle_str(t_arg *arg, va_list *ap)
 {
 	char	*result;
 	char	*width;
-//	char	*tmp;
+	char *tmp = NULL;
 
 	arg->str = va_arg(*ap, char*);
 	if (arg->str == NULL)
+	{	
 		arg->str = ft_strdup("(null)");
-	arg->l = ft_strlen(arg->str);
+		tmp = arg->str;
+	}
+		arg->l = ft_strlen(arg->str);
 	if (arg->precision < arg->l && arg->precision != -1)
 	{
-	//	tmp = arg->str;
 		arg->str = ft_strsub(arg->str, 0, arg->precision);
 		arg->l = ft_strlen(arg->str);
-	//	ft_strdel(&tmp);
 	}
 		if (arg->width > arg->l)
 	{
@@ -71,7 +73,8 @@ char	*ft_handle_str(t_arg *arg, va_list *ap)
 	else
 		result = ft_strjoin(width, arg->str);
 	arg->l = ft_strlen(result);
-//	ft_strdel(&arg->str);
+//	if (tmp)
+		ft_strdel(&tmp);
 	ft_strdel(&width);
 	return(result);
 }

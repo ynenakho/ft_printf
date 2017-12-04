@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 14:55:19 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 17:43:50 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 19:21:19 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*ft_handle_octal(t_arg *arg, va_list *ap)
 	else
 		result = ft_strdup(arg->str);
 	arg->l = ft_strlen(result);
-//	ft_strdel(&arg->str);
+	ft_strdel(&arg->str);
 	ft_strdel(&precision);
 	ft_strdel(&width);
 	ft_strdel(&hash);
