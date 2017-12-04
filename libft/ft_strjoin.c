@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/23 02:26:29 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/28 16:17:07 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/03 21:22:37 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		s2_length;
 	char	*new;
 
-	if (!s1 || !s2)
-		return (NULL);
+//	if (!s1 || !s2)
+//		return (NULL);
 	s1_length = ft_strlen(s1);
 	s2_length = ft_strlen(s2);
 	new = ft_strnew(s1_length + s2_length);
