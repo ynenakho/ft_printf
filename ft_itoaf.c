@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 14:47:44 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/27 17:51:12 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:34:34 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 static int	ft_counter(uintmax_t n)
 {
-	int	counter;
+	int		counter;
 
 	counter = 0;
-
 	while (n > 0)
 	{
 		n = n / 10;
@@ -26,18 +25,16 @@ static int	ft_counter(uintmax_t n)
 	return (counter);
 }
 
-char	*ft_itoaf(uintmax_t n)
+char		*ft_itoaf(uintmax_t n)
 {
 	int		counter;
 	char	*new;
-
 
 	if (n == 0)
 		return (ft_strdup("0"));
 	counter = ft_counter(n);
 	if (!(new = ft_strnew(counter)))
 		return (NULL);
-
 	while (n > 0)
 	{
 		new[counter - 1] = n % 10 + '0';

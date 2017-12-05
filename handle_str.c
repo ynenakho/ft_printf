@@ -6,20 +6,20 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/25 00:02:37 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 20:43:04 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:50:58 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*get_width_str(t_arg *arg)
+char		*get_width_str(t_arg *arg)
 {
 	int		num;
 	char	*str;
 
 	if (arg->precision != -1 && arg->precision < arg->l)
 		num = arg->width - arg->precision;
-	else if (arg->precision == -1)
+	else if (arg->precision == 0)
 		num = arg->width;
 	else
 		num = arg->width - arg->l;
@@ -29,7 +29,7 @@ char	*get_width_str(t_arg *arg)
 	return (str);
 }
 
-char	*get_precision_str(t_arg *arg)
+char		*get_precision_str(t_arg *arg)
 {
 	char	*str;
 
@@ -39,42 +39,33 @@ char	*get_precision_str(t_arg *arg)
 		str = ft_strdup("");
 	else
 		str = ft_strsub(arg->val.str, 0, arg->l);
-//	ft_strdel(&arg->val.str);
 	return (str);
 }
 
-char	*ft_handle_str(t_arg *arg, va_list *ap)
+char		*ft_handle_str(t_arg *arg, va_list *ap)
 {
 	char	*result;
 	char	*width;
-	char *tmp = NULL;
+	char	*tmp;
 
-	arg->str = va_arg(*ap, char*);
-	if (arg->str == NULL)
-	{	
-		arg->str = ft_strdup("(null)");
-		tmp = arg->str;
-	}
-		arg->l = ft_strlen(arg->str);
-	if (arg->precision < arg->l && arg->precision != -1)
+	tmp = NULL;
+	arg->val.str = va_arg(*ap, char*);
+	if (arg->val.str == NULL)
 	{
-		arg->str = ft_strsub(arg->str, 0, arg->precision);
-		arg->l = ft_strlen(arg->str);
+		arg->val.str = ft_strdup("(null)");
+		tmp = arg->val.str;
 	}
-		if (arg->width > arg->l)
-	{
-		width = ft_strnew(arg->width - arg->l);
-		ft_memset(width, ' ', arg->width - arg->l);
-	}
-		else
-			width = ft_strnew(0);
+	arg->l = ft_strlen(arg->val.str);
+	arg->val.str = get_precision_str(arg);
+	arg->l = ft_strlen(arg->val.str);
+	width = get_width_str(arg);
 	if (arg->flag.left_j)
-		result = ft_strjoin(arg->str, width);
+		result = ft_strjoin(arg->val.str, width);
 	else
-		result = ft_strjoin(width, arg->str);
+		result = ft_strjoin(width, arg->val.str);
 	arg->l = ft_strlen(result);
-//	if (tmp)
-		ft_strdel(&tmp);
+	ft_strdel(&tmp);
+	ft_strdel(&arg->val.str);
 	ft_strdel(&width);
-	return(result);
+	return (result);
 }

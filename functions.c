@@ -6,13 +6,13 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/06 21:06:43 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/27 16:44:04 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:53:48 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_hex(uintmax_t nb)
+char		*ft_hex(uintmax_t nb)
 {
 	char	new[20];
 	char	*str;
@@ -41,13 +41,13 @@ char	*ft_hex(uintmax_t nb)
 	return (str);
 }
 
-char	*ft_octal(uintmax_t nb)
+char		*ft_octal(uintmax_t nb)
 {
 	char	new[20];
 	char	*str;
 	int		i;
 	int		counter;
-	
+
 	if (nb == 0)
 		return (ft_strdup("0"));
 	counter = 0;

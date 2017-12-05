@@ -6,17 +6,17 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 23:58:49 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/04 00:10:24 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 19:08:44 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char *ft_get_binary(unsigned char octet)
+static char	*ft_get_binary(unsigned char octet)
 {
-	int i;
-	char *res;
-	int counter;
+	int		i;
+	char	*res;
+	int		counter;
 
 	res = ft_strnew(9);
 	counter = 0;
@@ -34,9 +34,9 @@ static char *ft_get_binary(unsigned char octet)
 	return (res);
 }
 
-char *ft_handle_binary(t_arg *arg, va_list *ap)
+char		*ft_handle_binary(t_arg *arg, va_list *ap)
 {
-	char *result;
+	char	*result;
 
 	convert_u(arg, ap);
 	result = ft_get_binary(arg->val.uintm);

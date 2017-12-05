@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/26 16:31:49 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 17:46:43 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 18:25:45 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*ft_get_precision(t_arg *arg)
 {
-	char *precision;
+	char	*precision;
 
 	if (arg->l < arg->precision)
 	{
@@ -26,9 +26,9 @@ static char	*ft_get_precision(t_arg *arg)
 	return (precision);
 }
 
-static char *ft_get_width(t_arg *arg)
+static char	*ft_get_width(t_arg *arg)
 {
-	char *width;
+	char	*width;
 
 	if (arg->l < arg->width && arg->flag.zero && arg->precision == -1)
 	{
@@ -45,15 +45,16 @@ static char *ft_get_width(t_arg *arg)
 	return (width);
 }
 
-char	*ft_handle_uint(t_arg *arg, va_list *ap)
+char		*ft_handle_uint(t_arg *arg, va_list *ap)
 {
-	char *result;
-	char *precision;
-	char *width;
-	char *val;
+	char	*result;
+	char	*precision;
+	char	*width;
+	char	*val;
 
 	convert_u(arg, ap);
-	val = ((arg->precision == 0) && (arg->val.uintm == 0)) ? ft_strnew(0) : ft_itoaf(arg->val.uintm);
+	val = ((arg->precision == 0) && (arg->val.uintm == 0)) ? ft_strnew(0) :
+		ft_itoaf(arg->val.uintm);
 	arg->l = ft_strlen(val);
 	precision = ft_get_precision(arg);
 	arg->l += ft_strlen(precision);

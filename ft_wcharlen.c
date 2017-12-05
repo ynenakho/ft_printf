@@ -6,13 +6,13 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 16:05:51 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/11/28 16:13:48 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 19:07:53 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_wcharlen(wchar_t wc)
+int	ft_wcharlen(wchar_t wc)
 {
 	int size;
 

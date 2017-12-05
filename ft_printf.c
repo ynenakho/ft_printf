@@ -6,13 +6,13 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/27 16:00:06 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/02 23:43:15 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 17:52:50 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(char *fmt, ...)
+int			ft_printf(char *fmt, ...)
 {
 	va_list ap;
 	int		result;
@@ -35,13 +35,12 @@ int		ft_printf(char *fmt, ...)
 		}
 	}
 	va_end(ap);
-//	del_structs(arg);
 	return (result);
 }
 
-t_arg	*create_struct(char **fmt, va_list *ap)
+t_arg		*create_struct(char **fmt, va_list *ap)
 {
-	t_arg *arg;
+	t_arg	*arg;
 
 	arg = (t_arg *)malloc(sizeof(t_arg));
 	arg->width = 0;
@@ -56,18 +55,8 @@ t_arg	*create_struct(char **fmt, va_list *ap)
 	return (arg);
 }
 
-void	del_structs(t_arg *arg)
+void		del_structs(t_arg *arg)
 {
-
-	/* if (arg->length) */
-	 	ft_strdel(&arg->length); 
-//	 if (arg->str) 
-//	 	ft_strdel(&arg->str); 
-	//	if (arg->sign) 
-//	 	ft_strdel(&arg->sign); 
-// if (arg->val.str) 
-	 //	ft_strdel(&arg->val.str); 
-	/* if (arg->val.ptr) */
-	/* 	ft_memdel(&arg->val.ptr); */
+	ft_strdel(&arg->length);
 	ft_memdel((void**)&arg);
 }

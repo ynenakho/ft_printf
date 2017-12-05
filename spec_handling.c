@@ -6,14 +6,14 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/03 20:50:24 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 23:58:26 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 19:50:45 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
 
-int ft_algo(t_arg *arg, va_list *ap)
+int			ft_algo(t_arg *arg, va_list *ap)
 {
 	char	*value;
 	t_func	f;
@@ -27,16 +27,9 @@ int ft_algo(t_arg *arg, va_list *ap)
 		arg->l = arg->width;
 		value = ft_strnew(arg->width);
 		ft_memset(value, ' ', arg->width);
-		if (arg->flag.left_j)
-			ft_memset(value, arg->sp, 1);
-		else
-			ft_memset(value + arg->width - 1, arg->sp, 1);
+		res = (arg->flag.left_j) ? 0 : arg->width - 1;
+		ft_memset(value + res, arg->sp, 1);
 	}
-	/* else if (arg->sp == '\0') */
-	/* { */
-	/* 	arg->l = 0; */
-	/* 	value = ft_strnew(0); */
-	/* } */
 	else
 	{
 		arg->l = 1;
@@ -47,43 +40,6 @@ int ft_algo(t_arg *arg, va_list *ap)
 	ft_memdel((void **)&value);
 	del_structs(arg);
 	return (res);
-
-	/* int ret; */
-	/* char *res; */
-
-	/* res = ft_strnew(0); */
-	/* ret = 0; */
-	/* if (arg->sp == 'c' || arg->sp == '%' || arg->sp == 'C') */
-	/* 	res = ft_handle_char(arg, ap); */
-	/* else if (arg->sp == 'o' || arg->sp == 'O') */
-	/* 	res = ft_handle_octal(arg, ap); */
-	/* else if (arg->sp == 'S') */
-	/* 	res = ft_handle_wstr(arg, ap); */
-	/* //	else if (arg->sp == 'C') */
-	/* //		res = ft_handle_wchar(arg, ap); */
-	/* else if (arg->sp == 'X' || arg->sp == 'x') */
-	/* 	res = ft_handle_hex(arg, ap); */
-	/* else if (arg->sp == 's') */
-	/* 	res = ft_handle_str(arg, ap); */
-	/* else if (arg->sp == 'd' || arg->sp == 'i' || arg->sp == 'D') */
-	/* 	res = ft_handle_int(arg, ap); */
-	/* else if (arg->sp == 'u' || arg->sp == 'U') */
-	/* 	res = ft_handle_uint(arg, ap); */
-	/* else if (arg->sp == 'p') */
-	/* 	res = ft_handle_addr(arg, ap); */
-	/* if (arg->sp == 'c' || arg->sp == 'C' || arg->sp == 'S') */
-	/* { */
-	/* 	write(1, res, arg->l); */
-	/* 	ret += arg->l; */
-	/* } */
-	/* else */
-	/* { */
-	/* 	ret += ft_strlen(res); */
-	/* 	ft_putstr(res); */
-	/* } */
-	/* ft_strdel(&res); */
-	/* del_structs(arg); */
-	/* return (ret); */
 }
 
 static void	init_funcs(t_func *funcs)
@@ -106,7 +62,7 @@ static void	init_funcs(t_func *funcs)
 	funcs['u'] = &ft_handle_uint;
 }
 
-t_func	get_func(char c)
+t_func		get_func(char c)
 {
 	static t_func	*funcs;
 

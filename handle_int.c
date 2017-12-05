@@ -6,7 +6,7 @@
 /*   By: ynenakho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/20 15:03:16 by ynenakho          #+#    #+#             */
-/*   Updated: 2017/12/03 19:12:01 by ynenakho         ###   ########.fr       */
+/*   Updated: 2017/12/04 18:34:37 by ynenakho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static char	*ft_get_precision(t_arg *arg)
 	}
 	else
 		precision = ft_strnew(0);
+	arg->l += ft_strlen(precision);
 	return (precision);
 }
 
@@ -49,7 +50,8 @@ static char	*ft_get_width(t_arg *arg, int x)
 {
 	char *width;
 
-	if (arg->l + x < arg->width && arg->flag.zero && arg->precision == -1 && !(arg->flag.left_j))
+	if (arg->l + x < arg->width && arg->flag.zero && arg->precision == -1
+			&& !(arg->flag.left_j))
 	{
 		width = ft_strnew(arg->width - arg->l - x);
 		ft_memset(width, '0', arg->width - arg->l - x);
@@ -74,10 +76,10 @@ char		*ft_handle_int(t_arg *arg, va_list *ap)
 
 	convert(arg, ap);
 	sign = get_sign(arg->val.intm, arg);
-	val = ((arg->precision == 0) && (arg->val.intm == 0)) ? ft_strnew(0) : ft_itoaf(arg->val.intm);
+	val = ((arg->precision == 0) && (arg->val.intm == 0)) ? ft_strnew(0) :
+		ft_itoaf(arg->val.intm);
 	arg->l = ft_strlen(val);
 	precision = ft_get_precision(arg);
-	arg->l += ft_strlen(precision);
 	width = ft_get_width(arg, sign);
 	if (arg->flag.left_j)
 		result = ft_strmjoin(4, arg->sign, precision, val, width);
